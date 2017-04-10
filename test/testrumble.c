@@ -71,7 +71,7 @@ main(int argc, char **argv)
     }
 
     /* Initialize the force feedbackness */
-    SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER | SDL_INIT_JOYSTICK |
+	SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER | SDL_INIT_JOYSTICK | SDL_INIT_GAMECONTROLLER |
              SDL_INIT_HAPTIC);
     SDL_Log("%d Haptic devices detected.\n", SDL_NumHaptics());
     if (SDL_NumHaptics() > 0) {
