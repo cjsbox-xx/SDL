@@ -51,6 +51,7 @@ main(int argc, char **argv)
     /* Enable standard application logging */
     SDL_LogSetPriority(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO);
 
+	int res = SDL_GameControllerAddMappingsFromFile("gamecontrollerdb.txt");
     name = NULL;
     index = -1;
     if (argc > 1) {
@@ -117,7 +118,7 @@ main(int argc, char **argv)
         return 1;
     }
     SDL_Log("Playing 2 second rumble at 0.5 magnitude.\n");
-    if (SDL_HapticRumblePlay(haptic, 0.5, 5000) != 0) {
+    if (SDL_HapticRumblePlay(haptic, 1.0f, 5000) != 0) {
        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Failed to play rumble: %s\n", SDL_GetError() );
        return 1;
     }
@@ -126,7 +127,7 @@ main(int argc, char **argv)
     SDL_HapticRumbleStop(haptic);
     SDL_Delay(2000);
     SDL_Log("Playing 2 second rumble at 0.3 magnitude.\n");
-    if (SDL_HapticRumblePlay(haptic, 0.3f, 5000) != 0) {
+    if (SDL_HapticRumblePlay(haptic, 1.0f, 5000) != 0) {
        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Failed to play rumble: %s\n", SDL_GetError() );
        return 1;
     }
